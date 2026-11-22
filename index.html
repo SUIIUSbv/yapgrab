@@ -52,7 +52,7 @@
 
         <div class="demo">
           <input class="demo-toggle" type="checkbox" id="clean-toggle" checked aria-describedby="demo-note">
-          <div class="yappy-perch" aria-hidden="true"><img class="rest" src="assets/yappy-rest.webp" alt="" width="172" height="172"><img class="yap" src="assets/yappy-yap.webp" alt="" width="172" height="172"></div>
+          <button class="yappy-perch yappy-egg" type="button" aria-label="Yappy. Press to let Yappy eat the words on this page."><img class="rest" src="assets/yappy-rest.webp" alt="" width="172" height="172"><img class="yap" src="assets/yappy-yap.webp" alt="" width="172" height="172"></button>
           <div class="card demo-card">
             <div class="mock-url" aria-hidden="true"><i></i><i></i><i></i><span>youtube.com/watch?v=nT5k2Qe9dWx</span><img class="ext" src="assets/icon.svg" alt="" width="18" height="18"></div>
             <div class="mock-bar" aria-hidden="true"><img src="assets/icon.svg" alt="" width="20" height="20"><b>Yapgrab</b><span>Notes That Stick: How to Learn from Long Videos</span></div>
@@ -374,10 +374,10 @@ So you've just watched a great talk. You nodded along, you even paused it.</pre>
 
     <section class="section closing">
       <div class="wrap">
-        <picture>
+        <button class="yappy-egg closing-egg" type="button" aria-label="Yappy. Press to let Yappy eat the words on this page."><picture>
           <source srcset="assets/yappy-still.webp" media="(prefers-reduced-motion: reduce)">
           <img class="yappy" src="assets/yappy.webp" alt="Yappy, the Yapgrab mascot: a speech bubble with eyes that yaps out two lines of words" width="180" height="180" loading="lazy" decoding="async">
-        </picture>
+        </picture></button>
         <h2>Coming to the Chrome Web Store in December.</h2>
         <p class="sub">Yapgrab itself is free. Want 300-video exports when Pro arrives? Join the Pro waitlist.</p>
         <a class="btn" href="https://tally.so/r/2jA2Lp" rel="noopener">Join the waitlist <span class="arrow" aria-hidden="true">&rarr;</span></a>
@@ -388,6 +388,7 @@ So you've just watched a great talk. You nodded along, you even paused it.</pre>
       <video controls playsinline preload="none" poster="assets/film-poster.webp" width="1920" height="1080"><source src="assets/yapgrab-launch.mp4" type="video/mp4"></video>
     </dialog>
   </main>
+  <script src="assets/egg.js" defer></script>
 
   <footer class="bottom big">
     <div class="wrap wide">
