@@ -13,7 +13,7 @@ body.home { overflow-x: clip; }
 .nav-cta { border: 1px solid var(--line); border-radius: 999px; padding: 7px 14px; font-weight: 650; background: var(--card); }
 .home nav.links a.nav-cta { color: var(--fg); }
 .home nav.links a.nav-cta:hover { border-color: var(--accent); }
-@media (max-width: 440px) { .nav-cta { display: none; } }
+@media (max-width: 560px) { .home nav.links a:not(.nav-cta) { display: none; } .nav-cta { padding: 6px 12px; font-size: 14px; } }
 
 /* Buttons */
 /* Buttons use a slightly deeper orange than the brand so white text reads well (19 px bold: WCAG AA large text). */
@@ -310,3 +310,35 @@ footer.big .wrap { display: grid; grid-template-columns: 1fr auto; gap: 18px 40p
 footer.big .legal { grid-column: 1 / -1; padding-top: 18px; border-top: 1px solid var(--line); font-size: 13.5px; }
 @media (max-width: 640px) { footer.big .wrap { grid-template-columns: 1fr; } }
 .home footer .brand { color: var(--fg); }
+
+/* Phones: the demo comes right after the headline. */
+@media (max-width: 900px) {
+  .hero-copy { display: contents; }
+  .hero-copy .soon { order: 1; justify-self: start; }
+  .hero-copy h1 { order: 2; }
+  .hero-home .demo { order: 3; }
+  .hero-copy .lead { order: 4; margin-top: 8px; }
+  .hero-copy .cta-row { order: 5; margin-top: 4px; }
+  .hero-copy .fine { order: 6; margin-top: 0 !important; }
+  .hero-home .split { gap: 24px; }
+}
+
+/* FAQ */
+.faq { margin-top: 32px; border-top: 1px solid var(--line); }
+.faq details { border-bottom: 1px solid var(--line); }
+.faq summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 20px 0; font-family: var(--display); font-weight: 700; font-size: 19px; letter-spacing: -.01em; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; flex: none; width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; background: var(--accent-soft); color: var(--accent-ink); font: 600 20px/1 var(--mono); transition: transform .2s; }
+.faq details[open] summary::after { transform: rotate(45deg); }
+.faq summary:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; border-radius: 6px; }
+.faq details p { margin: -4px 0 22px !important; color: var(--muted); font-size: 16.5px; line-height: 1.6; max-width: 40em; }
+.faq details a { color: var(--accent-ink); }
+
+/* The demo card sits on a YouTube video page: a small browser address bar, no logo. */
+.mock-url { display: flex; align-items: center; gap: 6px; padding: 9px 14px; background: var(--tint); border-bottom: 1px solid var(--line); }
+.mock-url i { width: 9px; height: 9px; border-radius: 50%; background: var(--line); flex: none; }
+.mock-url span { margin-left: 8px; flex: 1; min-width: 0; padding: 4px 12px; border-radius: 999px; background: var(--card); border: 1px solid var(--line); color: var(--muted); font: 12.5px var(--mono); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.hero-home .lead strong { color: var(--fg); font-weight: 700; }
+.soon b { color: var(--fg); font-weight: 700; }
+/* The pinned extension icon at the end of the address bar, lit up as active. */
+.mock-url .ext { flex: none; width: 26px; height: 26px; padding: 4px; margin-left: 4px; border-radius: 8px; background: var(--accent-soft); box-shadow: inset 0 0 0 1px rgba(255, 90, 54, .35); }
