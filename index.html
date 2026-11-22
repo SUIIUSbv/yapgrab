@@ -147,9 +147,22 @@
       </div>
     </section>
 
-    <section class="uses" aria-labelledby="uses-h">
+    <section class="section statement" id="clean">
       <div class="wrap wide">
-        <h2 class="eyebrow" id="uses-h">Where the words go</h2>
+        <h2 class="reveal"><span class="crumbs" aria-hidden="true"><s>[Music]</s> captions come&nbsp;in <s>captions come in</s> crumbs.</span><span class="sr">Captions come in crumbs.</span> <span class="out">Yapgrab hands you paragraphs.</span></h2>
+        <ul class="four">
+          <li class="reveal"><b>Fragments become paragraphs.</b> Sentences are put back together.</li>
+          <li class="reveal" style="--d:.06s"><b>No [Music], no [Applause].</b> Sound tags and repeated lines are removed.</li>
+          <li class="reveal" style="--d:.12s"><b>Breaks where they belong.</b> New paragraphs on chapters and long pauses.</li>
+          <li class="reveal" style="--d:.18s"><b>One click.</b> Press the Yapgrab button on the video page, then copy or save.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section uses" aria-labelledby="uses-h">
+      <div class="wrap wide">
+        <p class="eyebrow">Where the words go</p>
+        <h2 id="uses-h">Paste it. Keep it. Quote it.</h2>
         <div class="uses-grid">
           <article class="card use reveal">
             <div class="use-mock" aria-hidden="true">
@@ -182,183 +195,41 @@ So you've just watched a great talk. You nodded along, you even paused it.</pre>
             <p>Switch on timestamps to find every line again in the video.</p>
           </article>
         </div>
-      </div>
-    </section>
-
-    <section class="section" id="clean">
-      <div class="wrap wide split">
-        <div class="reveal">
-          <p class="eyebrow">Clean text</p>
-          <h2>Captions come in crumbs. Yapgrab hands you paragraphs.</h2>
-          <p class="sub">Captions are built for the screen: short fragments, split mid-sentence, with sound tags and repeated lines. Clean text mode turns them into something you can read, quote and paste.</p>
-          <ul class="ticks">
-            <li><strong>Fragments become paragraphs.</strong> <span>Sentences are put back together.</span></li>
-            <li><strong>No [Music], no [Applause].</strong> <span>Sound tags and duplicate lines are removed.</span></li>
-            <li><strong>Breaks where they belong.</strong> <span>New paragraphs on chapters and long pauses.</span></li>
-            <li><strong>One click.</strong> <span>Press the Yapgrab button on the video page, then copy or save.</span></li>
+        <div class="fmt-strip reveal">
+          <span class="lbl">Copy it, or save it as</span>
+          <ul>
+            <li>Plain text <code>.txt</code></li>
+            <li>Markdown <code>.md</code></li>
+            <li>SRT <code>.srt</code></li>
+            <li>WebVTT <code>.vtt</code></li>
+            <li>JSON <code>.json</code></li>
           </ul>
         </div>
-        <figure class="shot-frame reveal" style="--d:.1s">
-          <img src="assets/shot-clean-text.webp" width="800" height="740" loading="lazy" decoding="async" alt="The Yapgrab panel open next to a video. Captions set to English, manual. Format set to plain text. Clean text is switched on, and the preview shows the transcript as paragraphs, with Copy and Save as file buttons below.">
-          <figcaption>The real panel, with an invented sample video.</figcaption>
+      </div>
+    </section>
+
+
+
+    <section class="section tint" id="details">
+      <div class="wrap wide split flip">
+        <figure class="panel-shot reveal">
+          <img src="assets/panel-chapters.webp" width="432" height="530" loading="lazy" decoding="async" alt="The Yapgrab panel in dark mode with the chapter picker open. Two of six chapters are ticked, each with its start time. Below are the switches: clean text, timestamps, chapter headings and new paragraph on long pauses.">
+          <figcaption>The real panel, in dark mode.</figcaption>
         </figure>
-      </div>
-    </section>
-
-    <section class="section tint" id="formats">
-      <div class="wrap wide">
-        <div class="reveal">
-          <p class="eyebrow">Five formats</p>
-          <h2>Pick a format. Copy it, or save it as a file.</h2>
-          <p class="sub">Plain text for AI tools, Markdown for notes, SRT and WebVTT for subtitles, JSON for code.</p>
-        </div>
-        <div class="formats reveal" role="group" aria-label="Sample output per format">
-          <input type="radio" name="fmt" id="f-txt" checked>
-          <input type="radio" name="fmt" id="f-md">
-          <input type="radio" name="fmt" id="f-srt">
-          <input type="radio" name="fmt" id="f-vtt">
-          <input type="radio" name="fmt" id="f-json">
-          <div class="fmt-tabs">
-            <label for="f-txt">Plain text <code>.txt</code></label>
-            <label for="f-md">Markdown <code>.md</code></label>
-            <label for="f-srt">SRT <code>.srt</code></label>
-            <label for="f-vtt">WebVTT <code>.vtt</code></label>
-            <label for="f-json">JSON <code>.json</code></label>
-          </div>
-          <div class="fmt-panels">
-            <div class="fmt-panel p-txt">
-<pre>Notes That Stick: How to Learn from Long Videos
-by Margin Club
-https://www.youtube.com/watch?v=nT5k2Qe9dWx
-
-WHY MOST VIDEO NOTES NEVER GET USED
-
-So you've just watched a great talk. You nodded
-along, you even paused it to write something down.
-And a week later, you cannot remember a single
-thing it said.
-...</pre>
-              <div class="why"><h3>Plain text</h3><p>Paragraphs and nothing else. Paste it straight into an AI tool, an email or a document. Timestamps are there if you switch them on.</p></div>
-            </div>
-            <div class="fmt-panel p-md">
-<pre>---
-title: "Notes That Stick: How to Learn from Long Videos"
-channel: "Margin Club"
-url: "https://www.youtube.com/watch?v=nT5k2Qe9dWx"
-video_id: "nT5k2Qe9dWx"
-date: "2026-10-02"
-language: "en"
-captions: "manual"
-extracted_at: "2026-11-19T10:00:00.000Z"
----
-
-# Notes That Stick: How to Learn from Long Videos
-
-## Why most video notes never get used
-
-So you've just watched a great talk. You nodded
-...</pre>
-              <div class="why"><h3>Markdown</h3><p>Obsidian-ready. Frontmatter with title, channel, link, date and language, and the video's chapters as headings.</p></div>
-            </div>
-            <div class="fmt-panel p-srt">
-<pre>1
-00:00:04,000 --> 00:00:07,000
-So you've just watched a great talk.
-
-2
-00:00:07,000 --> 00:00:10,000
-You nodded along, you even paused it
-
-3
-00:00:10,000 --> 00:00:13,000
-to write something down.
-...</pre>
-              <div class="why"><h3>SRT subtitles</h3><p>Numbered cues with start and end times, for video editors and subtitle tools.</p></div>
-            </div>
-            <div class="fmt-panel p-vtt">
-<pre>WEBVTT
-
-NOTE Notes That Stick: How to Learn from Long Videos
-
-00:00:04.000 --> 00:00:07.000
-So you've just watched a great talk.
-
-00:00:07.000 --> 00:00:10.000
-You nodded along, you even paused it
-
-00:00:10.000 --> 00:00:13.000
-...</pre>
-              <div class="why"><h3>WebVTT subtitles</h3><p>The subtitle format of the web, ready for a video player or a caption editor.</p></div>
-            </div>
-            <div class="fmt-panel p-json">
-<pre>{
-  "source": "yapgrab",
-  "schema": 1,
-  "meta": {
-    "id": "nT5k2Qe9dWx",
-    "title": "Notes That Stick: How to Learn from Long Videos",
-    "channel": "Margin Club",
-    "url": "https://www.youtube.com/watch?v=nT5k2Qe9dWx",
-    "publishDate": "2026-10-02",
-    "lengthSeconds": 742
-  },
-  ...</pre>
-              <div class="why"><h3>JSON</h3><p>Everything with timestamps and chapters, structured for your own scripts.</p></div>
-            </div>
-          </div>
+        <div class="reveal" style="--d:.08s">
+          <p class="eyebrow">The small things</p>
+          <h2>Only need part of it? Take just that part.</h2>
+          <p class="sub">Pick the caption track and the chapters you want. Yapgrab keeps the original timestamps and marks a partial export as partial. Works on YouTube videos and Shorts.</p>
+          <ul class="smalls">
+            <li><span class="vis" aria-hidden="true"><span class="chip on">English, manual</span><span class="chip">auto-generated</span></span><b>Every caption track.</b> Each language the video has, labelled manual or auto-generated.</li>
+            <li><span class="vis" aria-hidden="true"><kbd>Alt</kbd><kbd>Shift</kbd><kbd>C</kbd></span><b>Copy without opening anything.</b> Option+Shift+C on Mac. The transcript lands on your clipboard in your saved format.</li>
+            <li><span class="vis" aria-hidden="true"><span class="chip warn">No captions on this one</span></span><b>Honest messages.</b> It says when there are no captions or something breaks. Never a silent blank page.</li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <section class="section" id="details">
-      <div class="wrap wide">
-        <div class="split">
-          <div class="reveal">
-            <p class="eyebrow">The small things</p>
-            <h2>Only need part of it? Take just that part.</h2>
-            <p class="sub">Choose the caption track and the chapters you want, then copy. Yapgrab keeps the original timestamps, and marks a partial export as partial.</p>
-          </div>
-          <figure class="shot-frame reveal" style="--d:.1s">
-            <img src="assets/shot-chapter-picker.webp" width="800" height="740" loading="lazy" decoding="async" alt="The Yapgrab panel in dark mode with the chapter picker open. Two of six chapters are ticked, each with its start time.">
-            <figcaption>The chapter picker, in dark mode.</figcaption>
-          </figure>
-        </div>
-        <ul class="grid">
-          <li class="reveal">
-            <div class="vis" aria-hidden="true"><span class="chip on">English, manual</span><span class="chip">auto-generated</span></div>
-            <h3>Pick the caption track</h3>
-            <p>Every caption language the video has, clearly labelled manual or auto-generated.</p>
-          </li>
-          <li class="reveal" style="--d:.06s">
-            <div class="vis" aria-hidden="true"><span class="chip on">2 of 6</span><span class="chip">1:34</span><span class="chip">4:11</span></div>
-            <h3>Pick the chapters</h3>
-            <p>Export only the chapters you choose. Timestamps stay as they are in the video.</p>
-          </li>
-          <li class="reveal" style="--d:.12s">
-            <div class="vis" aria-hidden="true"><kbd>Alt</kbd><kbd>Shift</kbd><kbd>C</kbd></div>
-            <h3>Copy without opening anything</h3>
-            <p>Press Alt+Shift+C (Option+Shift+C on Mac). The transcript is on your clipboard, in your saved format.</p>
-          </li>
-          <li class="reveal">
-            <div class="vis" aria-hidden="true"><span class="chip warn">No captions on this one</span></div>
-            <h3>Honest messages</h3>
-            <p>"No captions on this one" when there are none. A clear "Extraction failed" when something breaks. Never a silent blank page.</p>
-          </li>
-          <li class="reveal" style="--d:.06s">
-            <div class="vis" aria-hidden="true"><span class="chip">Videos</span><span class="chip">Shorts</span></div>
-            <h3>Videos and Shorts</h3>
-            <p>Works on YouTube video pages and Shorts that have captions, manual or auto-generated.</p>
-          </li>
-          <li class="reveal" style="--d:.12s">
-            <div class="vis" aria-hidden="true"><span class="chip on">Timestamps</span><span class="chip on">Chapter headings</span></div>
-            <h3>Your settings stick</h3>
-            <p>Timestamps, chapter headings and new paragraphs on long pauses are switches. Yapgrab remembers how you set them.</p>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="section tint" id="several">
+    <section class="section ink" id="several">
       <div class="wrap wide split">
         <div class="reveal">
           <p class="eyebrow">New <span class="badge">Export several videos</span></p>
