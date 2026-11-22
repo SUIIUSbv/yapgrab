@@ -134,6 +134,9 @@
                 batch.classList.add('armed', 'play');
                 btimer = setTimeout(run, 11000);
               }
+              /* The real-video shot: the panel opens, holds, closes, only while on screen. */
+              var real = d.querySelector('.real-stage');
+              if (real) new IntersectionObserver(function (es) { real.classList.toggle('play', es[0].isIntersecting); }, { threshold: 0.4 }).observe(real);
               batch.classList.add('armed');
               new IntersectionObserver(function (es) {
                 clearTimeout(btimer);
@@ -148,6 +151,17 @@
     <section class="section statement" id="clean">
       <div class="wrap wide">
         <h2><span class="crumbs" aria-hidden="true"><s>[Music]</s> captions come&nbsp;in <s>captions come in</s> crumbs.</span><span class="sr">Captions come in crumbs.</span> <span class="out">Yapgrab hands you paragraphs.</span></h2>
+        <figure class="real">
+          <div class="real-frame" role="img" aria-label="Yapgrab on a real YouTube video page: the Yapgrab button next to Subscribe opens a panel with the video's human-made captions as clean paragraphs, ready to copy or save.">
+            <div class="mock-url" aria-hidden="true"><i></i><i></i><i></i><span>youtube.com/watch?v=Q3qiPXP57SE</span><img class="ext" src="assets/icon.svg" alt="" width="18" height="18"></div>
+            <div class="real-stage">
+              <img class="base" src="assets/real-before.webp" alt="" width="1190" height="620" loading="lazy" decoding="async">
+              <img class="panel" src="assets/real-panel.webp" alt="" width="338" height="563" loading="lazy" decoding="async">
+              <span class="tap" aria-hidden="true"></span>
+            </div>
+          </div>
+          <figcaption>On a real video with human-made captions. Video: "Why Did NASA Choose Asteroid Bennu?" by NASA's Goddard Space Flight Center. NASA does not endorse Yapgrab.</figcaption>
+        </figure>
         <ul class="four">
           <li><b>Fragments become paragraphs.</b> Sentences are put back together.</li>
           <li><b>No [Music], no [Applause].</b> Sound tags and repeated lines are removed.</li>
