@@ -16,8 +16,10 @@ body.home { overflow-x: clip; }
 @media (max-width: 440px) { .nav-cta { display: none; } }
 
 /* Buttons */
-.btn { font-family: var(--display); display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; padding: 12px 26px; border-radius: 999px; background: var(--accent); color: var(--on-accent); font-weight: 750; font-size: 18px; text-decoration: none; letter-spacing: -.005em; box-shadow: 0 10px 24px -12px rgba(255, 90, 54, .7); transition: transform .18s ease, box-shadow .18s ease; }
+/* Buttons use a slightly deeper orange than the brand so white text reads well (19 px bold: WCAG AA large text). */
+.btn { font-family: var(--display); display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; padding: 12px 26px; border-radius: 999px; background: #EE4A25; color: #fff; font-weight: 750; font-size: 19px; text-decoration: none; letter-spacing: -.005em; box-shadow: 0 10px 24px -12px rgba(255, 90, 54, .7); transition: transform .18s ease, box-shadow .18s ease; }
 .btn:hover { transform: translateY(-2px); box-shadow: 0 16px 28px -12px rgba(255, 90, 54, .8); }
+.btn:hover { background: #E2401C; }
 .btn:active { transform: translateY(0); }
 .btn .arrow { transition: transform .18s ease; }
 .btn:hover .arrow { transform: translateX(3px); }
@@ -238,7 +240,10 @@ kbd { display: inline-block; min-width: 30px; padding: 4px 9px; border-radius: 8
 .plan .tag { color: var(--muted); margin-top: 6px; }
 .plan .ticks { margin-bottom: 26px; }
 .plan .foot { margin-top: auto !important; color: var(--muted); font-size: 15px; }
-.plan.pro { border-color: var(--accent); background: linear-gradient(180deg, var(--accent-soft), transparent 55%), var(--card); }
+/* Pro: a dark card with an orange glow, on the ink palette in both themes. */
+.plan.pro { --card: #17171c; --fg: #f1f1f3; --muted: #a4a5ab; --line: #2e2e35; --accent-ink: #FF8A6E; --accent-deep: #FFA088; --accent-soft: rgba(255, 90, 54, .18);
+  background: radial-gradient(420px 260px at 100% 0%, rgba(255, 90, 54, .28), transparent 70%), #0e0e12; color: var(--fg); border-color: rgba(255, 255, 255, .08);
+  box-shadow: 0 30px 60px -24px rgba(20, 10, 5, .55); color-scheme: dark; }
 .plan.pro .btn { align-self: flex-start; margin-top: auto; }
 .plan.pro .foot { margin-top: 14px !important; }
 @media (max-width: 760px) { .plans { grid-template-columns: minmax(0, 1fr); } .plan { padding: 24px; } }
