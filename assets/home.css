@@ -333,3 +333,9 @@ footer.big .legal { grid-column: 1 / -1; padding-top: 18px; border-top: 1px soli
 .faq summary:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; border-radius: 6px; }
 .faq details p { margin: -4px 0 22px !important; color: var(--muted); font-size: 16.5px; line-height: 1.6; max-width: 40em; }
 .faq details a { color: var(--accent-ink); }
+
+/* The demo card sits on a YouTube video page: a small browser address bar, no logo. */
+.mock-url { display: flex; align-items: center; gap: 6px; padding: 9px 14px; background: var(--tint); border-bottom: 1px solid var(--line); }
+.mock-url i { width: 9px; height: 9px; border-radius: 50%; background: var(--line); flex: none; }
+.mock-url span { margin-left: 8px; flex: 1; min-width: 0; padding: 4px 12px; border-radius: 999px; background: var(--card); border: 1px solid var(--line); color: var(--muted); font: 12.5px var(--mono); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.hero-home .lead strong { color: var(--fg); font-weight: 700; }
