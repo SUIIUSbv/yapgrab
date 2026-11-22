@@ -1,6 +1,6 @@
 # Yapgrab site
 
-Public pages for the Yapgrab Chrome extension, served by GitHub Pages at https://suiiusbv.github.io/blurt/
+Public pages for the Yapgrab Chrome extension, served by GitHub Pages at https://suiiusbv.github.io/yapgrab/
 
 - `index.html`: product page
 - `privacy/`: privacy policy (linked from the Chrome Web Store listing). Keep it in sync with `docs/privacy-policy.md` in the extension repo.
