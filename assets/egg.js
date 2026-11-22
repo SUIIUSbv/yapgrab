@@ -1,5 +1,6 @@
-/* Easter egg: click Yappy and it eats the words on screen, chews, spits them back,
-   and hands you a clean transcript of this page as Markdown.
+/* Easter eggs: click Yappy and it eats the words on screen, chews, spits them back,
+   and hands you a clean transcript of this page as Markdown. Hover Yappy for 3 s
+   and its eyes follow your cursor for the rest of the visit.
    No network, no storage, no cookies. Everything happens in this tab. */
 (function () {
   var d = document, body = d.body;
@@ -214,4 +215,63 @@
   }
 
   d.querySelectorAll('.yappy-egg').forEach(wire);
+
+  /* ---------- second egg: hover Yappy for 3 s and its eyes follow you for the rest of the visit ---------- */
+
+  var yappies = [].slice.call(d.querySelectorAll('.yappy-egg'));
+  var watching = false, hoverTimer, px = -1, py = -1, frame = 0;
+
+  function addEyes(btn) {
+    var box = d.createElement('span');
+    box.className = 'yappy-eyes';
+    box.setAttribute('aria-hidden', 'true');
+    box.innerHTML = '<span class="eye l"><i></i></span><span class="eye r"><i></i></span>';
+    btn.appendChild(box);
+  }
+
+  function look() {
+    frame = 0;
+    yappies.forEach(function (btn) {
+      btn.querySelectorAll('.eye').forEach(function (eye) {
+        var r = eye.getBoundingClientRect();
+        if (!r.width) return;
+        var dx = px - (r.left + r.width / 2), dy = py - (r.top + r.height / 2);
+        var dist = Math.hypot(dx, dy) || 1;
+        // How far the pupil may travel inside the eye white, eased in over the first 160 px.
+        var reachX = r.width * 0.2, reachY = r.height * 0.22, k = Math.min(1, dist / 160);
+        eye.firstChild.style.transform = 'translate(' + (dx / dist) * reachX * k + 'px,' + (dy / dist) * reachY * k + 'px)';
+      });
+    });
+  }
+
+  function follow(e) {
+    px = e.clientX; py = e.clientY;
+    if (!frame) frame = requestAnimationFrame(look);
+  }
+
+  function startWatching() {
+    if (watching) return;
+    watching = true;
+    yappies.forEach(function (btn) {
+      // The looping Yappy moves its eyes around, so it holds still and stares instead.
+      var img = btn.querySelector('img.yappy');
+      if (img) { var src = btn.querySelector('source'); if (src) src.remove(); img.src = 'assets/yappy-still.webp'; }
+      addEyes(btn);
+    });
+    body.classList.add('yappy-watching');
+    addEventListener('pointermove', follow, { passive: true });
+    addEventListener('scroll', function () { if (px >= 0 && !frame) frame = requestAnimationFrame(look); }, { passive: true });
+    if (px >= 0) look();
+  }
+
+  if (window.matchMedia && matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    yappies.forEach(function (btn) {
+      btn.addEventListener('pointerenter', function (e) {
+        px = e.clientX; py = e.clientY;
+        if (!watching) hoverTimer = setTimeout(startWatching, 3000);
+      });
+      btn.addEventListener('pointermove', function (e) { px = e.clientX; py = e.clientY; });
+      btn.addEventListener('pointerleave', function () { clearTimeout(hoverTimer); });
+    });
+  }
 })();
