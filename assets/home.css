@@ -236,11 +236,11 @@ kbd { display: inline-block; min-width: 30px; padding: 4px 9px; border-radius: 8
 /* Closing */
 .closing { text-align: center; padding: 96px 0 104px; position: relative; }
 .closing::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: radial-gradient(560px 300px at 50% 100%, var(--accent-soft), transparent 70%); }
-.closing img { width: 56px; height: 56px; }
-.closing h2 { margin-top: 18px; }
+.closing .yappy { display: block; width: 180px; height: 180px; margin: 0 auto; }
+.closing h2 { margin-top: 6px; }
 .closing .sub { margin-inline: auto; }
 .closing .btn { margin-top: 30px; }
-@media (max-width: 900px) { .closing { padding: 64px 0 72px; } }
+@media (max-width: 900px) { .closing { padding: 64px 0 72px; } .closing .yappy { width: 150px; height: 150px; } }
 
 /* Scroll reveal: only hides anything once the script has run. */
 .js .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .7s cubic-bezier(.2, .8, .2, 1); transition-delay: var(--d, 0s); }
