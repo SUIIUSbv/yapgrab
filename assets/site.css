@@ -1,4 +1,7 @@
+/* Bricolage Grotesque (SIL Open Font License, assets/fonts/OFL.txt), self-hosted: no font service sees visitors. */
+@font-face { font-family: "Bricolage Grotesque"; src: url("fonts/bricolage-grotesque.woff2") format("woff2"); font-weight: 200 800; font-display: swap; }
 :root {
+  --display: "Bricolage Grotesque", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, system-ui, sans-serif;
   --accent: #FF5A36;
   --accent-ink: #C7361A;
   --bg: #FFFAF7;
@@ -53,7 +56,7 @@ a { color: var(--accent-ink); text-underline-offset: 2px; }
 .wrap.wide { max-width: 1120px; }
 header.top { padding: 22px 0; }
 header.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-.brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 800; font-size: 20px; color: var(--fg); text-decoration: none; letter-spacing: -.01em; }
+.brand { display: inline-flex; align-items: center; gap: 10px; font-family: var(--display); font-weight: 750; font-size: 22px; color: var(--fg); text-decoration: none; letter-spacing: -.01em; }
 .brand img { width: 30px; height: 30px; }
 nav.links { display: flex; gap: 18px; font-size: 15px; }
 nav.links a { color: var(--muted); text-decoration: none; }
@@ -88,3 +91,5 @@ ol.steps li { margin-bottom: 6px; }
 footer.bottom { border-top: 1px solid var(--line); padding: 24px 0 40px; color: var(--muted); font-size: 14px; }
 footer.bottom .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 24px; }
 footer.bottom a { color: var(--muted); }
+
+h1, h2, h3 { font-family: var(--display); font-weight: 720; }

@@ -18,6 +18,7 @@
   <meta name="theme-color" content="#FFFAF7" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#121216" media="(prefers-color-scheme: dark)">
   <link rel="icon" href="assets/favicon-32.png" type="image/png">
+  <link rel="preload" href="assets/fonts/bricolage-grotesque.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/site.css">
   <link rel="stylesheet" href="assets/home.css">
 </head>
@@ -39,16 +40,17 @@
         <div>
           <span class="soon"><i></i>Coming soon to the Chrome Web Store</span>
           <h1><span>Grab the words.</span> <span class="l2">Clean transcripts, nothing else.</span></h1>
-          <p class="lead">Yapgrab is a Chrome extension that turns a video's captions into text you can actually read. One click, right in your browser. No account, no tracking.</p>
+          <p class="lead">Yapgrab is a Chrome extension that turns a video's messy captions into clean, readable paragraphs. One click, right in your browser. No account, no tracking.</p>
           <div class="cta-row">
             <a class="btn" href="https://tally.so/r/2jA2Lp" rel="noopener">Join the waitlist <span class="arrow" aria-hidden="true">&rarr;</span></a>
-            <a class="text-link" href="#clean">See what it does</a>
+            <a class="film-btn" href="assets/yapgrab-launch.mp4" data-film><span class="play" aria-hidden="true"></span>Watch the film <span class="dur" aria-label="40 seconds">0:40</span></a>
           </div>
           <p class="fine">Yapgrab is free. The waitlist is for Yapgrab Pro, which comes later. We only write to tell you when it is ready.</p>
         </div>
 
         <div class="demo">
           <input class="demo-toggle" type="checkbox" id="clean-toggle" checked aria-describedby="demo-note">
+          <div class="yappy-perch" aria-hidden="true"><img class="rest" src="assets/yappy-rest.webp" alt="" width="172" height="172"><img class="yap" src="assets/yappy-yap.webp" alt="" width="172" height="172"></div>
           <div class="card demo-card">
             <div class="mock-bar" aria-hidden="true"><img src="assets/icon.svg" alt="" width="20" height="20"><b>Yapgrab</b><span>Notes That Stick: How to Learn from Long Videos</span></div>
             <label class="demo-switch" for="clean-toggle">
@@ -72,7 +74,7 @@
               </ul>
               <div class="clean">
                 <p class="ch">WHY MOST VIDEO NOTES NEVER GET USED</p>
-                <p>So you've just watched a great talk. You nodded along, you even paused it to write something down. And a week later, you cannot remember a single thing it said. That's not a memory problem. It's a capture problem. Video is great for watching and terrible for finding things again.</p>
+                <p>So you've just watched a great talk. You nodded along, you even paused it to write something down. And a week later, you cannot remember a single thing it said. That's not a memory problem. <mark>It's a capture problem.</mark> Video is great for watching and terrible for finding things again.</p>
               </div>
             </div>
             <div class="mock-foot" aria-hidden="true">
@@ -80,8 +82,19 @@
               <span class="mock-btns"><span class="mock-btn">Copy</span><span class="mock-btn alt">Save as file</span></span>
             </div>
           </div>
-          <p class="demo-note" id="demo-note">An invented sample video. Flip the switch to see the captions before and after.</p>
+          <p class="demo-note" id="demo-note">An invented sample video. Flip the switch to see the before and after.</p>
         </div>
+        <script>
+          /* "Watch the film" opens the film on this page; without JS the link opens the file. */
+          document.addEventListener('DOMContentLoaded', function () {
+            var dlg = document.querySelector('dialog.film'), link = document.querySelector('[data-film]');
+            if (!dlg || !dlg.showModal) return;
+            var v = dlg.querySelector('video');
+            link.addEventListener('click', function (e) { e.preventDefault(); dlg.showModal(); v.play().catch(function () {}); });
+            dlg.addEventListener('close', function () { v.pause(); });
+            dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
+          });
+        </script>
         <script>
           /* Hero demo intro, scroll reveal and the several-videos demo. No network, no storage. */
           (function () {
@@ -89,15 +102,23 @@
             if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
             var t = d.getElementById('clean-toggle');
             t.checked = false;
-            var timer, touched = false;
-            function intro() { timer = setTimeout(function () { if (!touched) t.checked = true; }, 1100); }
+            /* The demo plays the clean-up, holds it, shows the crumbs again and repeats while
+               it is on screen. It stops for good once you touch the switch. */
+            var timer, touched = false, visible = false;
+            function cycle(on) {
+              clearTimeout(timer);
+              if (touched || !visible) return;
+              t.checked = on;
+              timer = setTimeout(function () { cycle(!on); }, on ? 7000 : 2200);
+            }
             t.addEventListener('click', function () { touched = true; clearTimeout(timer); });
             if ('IntersectionObserver' in window) {
-              var ho = new IntersectionObserver(function (es) {
-                if (es[0].isIntersecting) { ho.disconnect(); intro(); }
-              }, { threshold: 0.6 });
-              ho.observe(t.parentNode);
-            } else intro();
+              new IntersectionObserver(function (es) {
+                visible = es[0].isIntersecting;
+                if (visible && !t.checked) timer = setTimeout(function () { cycle(true); }, 900);
+                if (!visible) clearTimeout(timer);
+              }, { threshold: 0.5 }).observe(t.parentNode);
+            } else { visible = true; setTimeout(function () { cycle(true); }, 900); }
             d.addEventListener('DOMContentLoaded', function () {
               if (!('IntersectionObserver' in window)) return;
               var batch = d.querySelector('.batch');
@@ -444,6 +465,10 @@ You nodded along, you even paused it
         <a class="btn" href="https://tally.so/r/2jA2Lp" rel="noopener">Join the waitlist <span class="arrow" aria-hidden="true">&rarr;</span></a>
       </div>
     </section>
+    <dialog class="film" aria-label="Yapgrab launch film, 40 seconds">
+      <form method="dialog"><button class="close" aria-label="Close the film">&times;</button></form>
+      <video controls playsinline preload="none" poster="assets/film-poster.webp" width="1920" height="1080"><source src="assets/yapgrab-launch.mp4" type="video/mp4"></video>
+    </dialog>
   </main>
 
   <footer class="bottom">

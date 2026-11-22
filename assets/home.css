@@ -16,7 +16,7 @@ body.home { overflow-x: clip; }
 @media (max-width: 440px) { .nav-cta { display: none; } }
 
 /* Buttons */
-.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; padding: 12px 26px; border-radius: 999px; background: var(--accent); color: var(--on-accent); font-weight: 750; font-size: 18px; text-decoration: none; letter-spacing: -.005em; box-shadow: 0 10px 24px -12px rgba(255, 90, 54, .7); transition: transform .18s ease, box-shadow .18s ease; }
+.btn { font-family: var(--display); display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; padding: 12px 26px; border-radius: 999px; background: var(--accent); color: var(--on-accent); font-weight: 750; font-size: 18px; text-decoration: none; letter-spacing: -.005em; box-shadow: 0 10px 24px -12px rgba(255, 90, 54, .7); transition: transform .18s ease, box-shadow .18s ease; }
 .btn:hover { transform: translateY(-2px); box-shadow: 0 16px 28px -12px rgba(255, 90, 54, .8); }
 .btn:active { transform: translateY(0); }
 .btn .arrow { transition: transform .18s ease; }
@@ -29,7 +29,7 @@ body.home { overflow-x: clip; }
 /* Sections */
 .section { padding: 92px 0; }
 .section.tint { background: var(--tint); border-block: 1px solid var(--line); }
-.section h2 { font-size: clamp(30px, 4.4vw, 44px); line-height: 1.08; letter-spacing: -.028em; text-wrap: balance; }
+.section h2 { font-size: clamp(32px, 4.6vw, 48px); line-height: 1.04; letter-spacing: -.025em; text-wrap: balance; }
 .section .sub { font-size: 19px; color: var(--muted); margin-top: 16px; max-width: 34em; text-wrap: pretty; }
 .split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: 56px; align-items: center; }
 .split > * { min-width: 0; }
@@ -51,9 +51,9 @@ body.home { overflow-x: clip; }
 .hero-home .split { grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); }
 .soon { display: inline-flex; align-items: center; gap: 10px; padding: 7px 14px 7px 12px; border-radius: 999px; border: 1px solid var(--line); background: var(--card); color: var(--muted); font-size: 14px; font-weight: 650; }
 .soon i { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
-.hero-home h1 { font-size: clamp(42px, 6.6vw, 76px); line-height: .98; letter-spacing: -.04em; margin-top: 22px; }
+.hero-home h1 { font-size: clamp(44px, 5.4vw, 68px); line-height: .95; letter-spacing: -.035em; font-weight: 780; margin-top: 22px; }
 .hero-home h1 span { display: block; }
-.hero-home h1 .l2 { text-wrap: balance; font-size: .62em; line-height: 1.08; letter-spacing: -.03em; color: var(--accent-ink); margin-top: .22em; }
+.hero-home h1 .l2 { text-wrap: balance; font-size: .58em; line-height: 1.06; letter-spacing: -.025em; font-weight: 700; color: var(--accent-ink); margin-top: .22em; }
 .hero-home .lead { font-size: clamp(18px, 2vw, 21px); color: var(--muted); margin-top: 24px; max-width: 30em; text-wrap: pretty; }
 .cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 26px; margin-top: 32px; }
 .fine { font-size: 14.5px; color: var(--muted); margin-top: 16px !important; max-width: 34em; }
@@ -63,7 +63,39 @@ body.home { overflow-x: clip; }
 }
 
 /* Hero demo: a real checkbox drives it, so it works with JS off. */
-.demo { position: relative; --lh: 23px; }
+.demo { position: relative; --lh: 23px; padding-top: 74px; }
+
+/* Yappy sits on the demo card and yaps when the captions turn clean. */
+.yappy-perch { position: absolute; top: -58px; right: 8px; width: 172px; height: 172px; z-index: 2; pointer-events: none; transform-origin: 50% 68%; }
+.yappy-perch img { position: absolute; inset: 0; width: 100%; height: 100%; }
+.yappy-perch .yap { opacity: 0; }
+.demo-toggle:checked ~ .yappy-perch { animation: yap-body .9s cubic-bezier(.3, .8, .3, 1) .05s; }
+.demo-toggle:checked ~ .yappy-perch .yap { animation: yap-mouth .9s steps(1, end) .05s; }
+.demo-toggle:checked ~ .yappy-perch .rest { animation: yap-rest .9s steps(1, end) .05s; }
+@keyframes yap-body {
+  0% { transform: none; }
+  18% { transform: scale(1.1, .88) rotate(2deg); }
+  40% { transform: translateY(-14px) scale(.93, 1.1) rotate(-3deg); }
+  70% { transform: scale(1.04, .97); }
+  100% { transform: none; }
+}
+@keyframes yap-mouth { 0% { opacity: 0; } 15% { opacity: 1; } 78% { opacity: 0; } }
+@keyframes yap-rest { 0% { opacity: 1; } 15% { opacity: 0; } 78% { opacity: 1; } }
+/* A marker sweeps under the key line once the text is clean. */
+.clean mark { background: linear-gradient(transparent 56%, rgba(255, 90, 54, .28) 56%) no-repeat 0 0 / 0 100%; color: inherit; padding: 0 2px; margin: 0 -2px; }
+.demo-toggle:checked ~ .demo-card .clean mark { background-size: 100% 100%; transition: background-size .7s cubic-bezier(.3, .8, .3, 1) 2.6s; }
+
+/* Watch the film */
+.film-btn { display: inline-flex; align-items: center; gap: 10px; min-height: 52px; padding: 8px 18px 8px 8px; border-radius: 999px; border: 1px solid var(--line); background: var(--card); color: var(--fg); font: 700 17px var(--display); text-decoration: none; cursor: pointer; transition: border-color .18s, transform .18s; }
+.film-btn:hover { border-color: var(--accent); transform: translateY(-2px); }
+.film-btn .play { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: var(--fg); }
+.film-btn .play::after { content: ""; margin-left: 3px; border-style: solid; border-width: 7px 0 7px 11px; border-color: transparent transparent transparent var(--bg); }
+.film-btn .dur { color: var(--muted); font: 500 14px var(--mono); }
+dialog.film { width: min(1100px, calc(100vw - 32px)); padding: 0; border: 0; border-radius: 18px; background: #000; overflow: hidden; box-shadow: 0 30px 80px -20px rgba(0, 0, 0, .6); }
+dialog.film::backdrop { background: rgba(18, 18, 22, .78); backdrop-filter: blur(6px); }
+dialog.film video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; }
+dialog.film .close { position: absolute; top: 10px; right: 10px; z-index: 1; width: 40px; height: 40px; border-radius: 50%; border: 0; background: rgba(0, 0, 0, .55); color: #fff; font-size: 24px; line-height: 1; cursor: pointer; }
+dialog.film .close:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
 .demo-toggle { position: absolute; top: 60px; right: 24px; width: 1px; height: 1px; margin: 0; opacity: 0; }
 .card { background: var(--card); border: 1px solid var(--line); border-radius: 18px; box-shadow: var(--shadow); }
 .demo-card { overflow: hidden; }
@@ -106,6 +138,7 @@ body.home { overflow-x: clip; }
 .mock-btn.alt { background: transparent; color: var(--fg); border: 1px solid var(--line); }
 .demo-note { font-size: 14px; color: var(--muted); margin-top: 14px !important; text-align: center; }
 @media (max-width: 480px) {
+  .yappy-perch { width: 136px; height: 136px; right: 0; top: -30px; }
   .raw { font-size: 12px; }
   .raw time { display: none; }
   .stage { margin: 0 12px; padding: 14px; }
