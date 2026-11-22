@@ -82,7 +82,7 @@
               <span class="mock-btns"><span class="mock-btn">Copy</span><span class="mock-btn alt">Save as file</span></span>
             </div>
           </div>
-          <p class="demo-note" id="demo-note">An invented sample video. Flip the switch to see the before and after.</p>
+          <p class="demo-note" id="demo-note">Flip the switch to see the before and after.</p>
         </div>
         <script>
           /* "Watch the film" opens the film on this page; without JS the link opens the file. */
@@ -131,16 +131,20 @@
                 });
               }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
               d.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
-              batch.classList.add('armed');
-              var bo = new IntersectionObserver(function (es) {
-                if (es[0].isIntersecting) { batch.classList.add('play'); bo.disconnect(); }
-              }, { threshold: 0.45 });
-              bo.observe(batch);
-              batch.querySelector('.replay').addEventListener('click', function () {
+              /* The several-videos demo runs (about 6.5 s), holds the finished ZIP, and starts
+                 again, only while it is on screen. */
+              var btimer;
+              function run() {
                 batch.classList.remove('armed', 'play');
                 void batch.offsetWidth;
                 batch.classList.add('armed', 'play');
-              });
+                btimer = setTimeout(run, 11000);
+              }
+              batch.classList.add('armed');
+              new IntersectionObserver(function (es) {
+                clearTimeout(btimer);
+                if (es[0].isIntersecting) run(); else batch.classList.remove('play');
+              }, { threshold: 0.45 }).observe(batch);
             });
           })();
         </script>
@@ -214,7 +218,6 @@ So you've just watched a great talk. You nodded along, you even paused it.</pre>
       <div class="wrap wide split flip">
         <figure class="panel-shot reveal">
           <img src="assets/panel-chapters.webp" width="432" height="530" loading="lazy" decoding="async" alt="The Yapgrab panel in dark mode with the chapter picker open. Two of six chapters are ticked, each with its start time. Below are the switches: clean text, timestamps, chapter headings and new paragraph on long pauses.">
-          <figcaption>The real panel, in dark mode.</figcaption>
         </figure>
         <div class="reveal" style="--d:.08s">
           <p class="eyebrow">The small things</p>
@@ -270,7 +273,6 @@ So you've just watched a great talk. You nodded along, you even paused it.</pre>
             </div>
           </div>
           <p class="sr">Illustration: five videos from a channel go from Waiting to Reading to Saved, one at a time, and a ZIP fills with one Markdown file per video, plus index.md and manifest.json.</p>
-          <button class="replay" type="button">Replay the demo</button>
         </div>
       </div>
     </section>
