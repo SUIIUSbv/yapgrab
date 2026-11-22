@@ -116,11 +116,31 @@ body.home { overflow-x: clip; }
 }
 
 /* Made for */
-.for { padding: 26px 0; border-block: 1px solid var(--line); }
-.for .wrap { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 14px; }
-.for p { font-size: 14px; font-weight: 750; letter-spacing: .07em; text-transform: uppercase; color: var(--muted); }
-.for ul { display: flex; flex-wrap: wrap; gap: 8px 10px; }
-.for li { padding: 6px 14px; border-radius: 999px; background: var(--card); border: 1px solid var(--line); font-size: 15px; }
+/* Where the words go: three small cards showing the text where people use it. */
+.uses { padding: 72px 0 80px; border-top: 1px solid var(--line); }
+.uses .eyebrow { display: block; margin-bottom: 22px; }
+.uses-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.use { display: flex; flex-direction: column; overflow: hidden; }
+.use-mock { height: 196px; padding: 18px; background: var(--bg); border-bottom: 1px solid var(--line); overflow: hidden; font-size: 14px; line-height: 1.45;
+  -webkit-mask-image: linear-gradient(#000 80%, transparent); mask-image: linear-gradient(#000 80%, transparent); }
+.use-mock.quote { display: flex; flex-direction: column; justify-content: center; padding-bottom: 34px; }
+.home .use h3 { font-size: 19px; letter-spacing: -.01em; margin: 18px 20px 6px; }
+.home .use > p { margin: 0 20px 22px; color: var(--muted); font-size: 15.5px; line-height: 1.5; }
+.bubble { margin-left: 28px; padding: 10px 13px; background: var(--card); border: 1px solid var(--line); border-radius: 14px 14px 4px 14px; }
+.bubble + .bubble { margin-top: 8px; }
+.clip { display: block; width: fit-content; margin-bottom: 6px; padding: 2px 8px; border-radius: 6px; background: var(--accent-soft); color: var(--accent-ink); font: 600 12px var(--mono); }
+.note { margin: 0; font: 12.5px/1.6 var(--mono); white-space: pre-wrap; }
+.note .fm { color: var(--muted); }
+.note .k { color: var(--accent-ink); }
+.use blockquote { margin: 0; padding-left: 14px; border-left: 3px solid var(--accent); font-size: 20px; line-height: 1.3; font-weight: 700; letter-spacing: -.015em; }
+.home .use .src { margin-top: 14px; color: var(--muted); font-size: 14px; }
+.src time { margin-right: 6px; padding: 2px 7px; border-radius: 6px; border: 1px solid var(--line); background: var(--card); font: 600 12px var(--mono); color: var(--accent-ink); }
+@media (max-width: 900px) {
+  .uses { padding: 56px 0 60px; }
+  .uses-grid { grid-template-columns: 1fr; max-width: 520px; }
+  .use-mock { height: auto; max-height: 196px; }
+  .use-mock.quote { padding-bottom: 22px; }
+}
 
 /* Screenshots */
 .shot-frame { margin: 0; }
