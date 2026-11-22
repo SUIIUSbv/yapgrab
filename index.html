@@ -27,8 +27,9 @@
     <div class="wrap wide">
       <a class="brand" href="./"><img src="assets/icon.svg" alt="" width="30" height="30">Yapgrab</a>
       <nav class="links" aria-label="Site">
+        <a href="#clean">How it works</a>
+        <a href="#pro">Pro</a>
         <a href="privacy/">Privacy</a>
-        <a href="status/">Status</a>
         <a class="nav-cta" href="https://tally.so/r/2jA2Lp" rel="noopener">Join the waitlist</a>
       </nav>
     </div>
@@ -96,7 +97,7 @@
           });
         </script>
         <script>
-          /* Hero demo intro, scroll reveal and the several-videos demo. No network, no storage. */
+          /* Hero demo loop and the several-videos demo loop. No network, no storage. */
           (function () {
             var d = document, root = d.documentElement;
             if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -122,15 +123,6 @@
             d.addEventListener('DOMContentLoaded', function () {
               if (!('IntersectionObserver' in window)) return;
               var batch = d.querySelector('.batch');
-              root.classList.add('js');
-              var io = new IntersectionObserver(function (es) {
-                es.forEach(function (e) {
-                  if (!e.isIntersecting) return;
-                  e.target.classList.add('in');
-                  io.unobserve(e.target);
-                });
-              }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
-              d.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
               /* The several-videos demo runs (about 6.5 s), holds the finished ZIP, and starts
                  again, only while it is on screen. */
               var btimer;
@@ -153,12 +145,12 @@
 
     <section class="section statement" id="clean">
       <div class="wrap wide">
-        <h2 class="reveal"><span class="crumbs" aria-hidden="true"><s>[Music]</s> captions come&nbsp;in <s>captions come in</s> crumbs.</span><span class="sr">Captions come in crumbs.</span> <span class="out">Yapgrab hands you paragraphs.</span></h2>
+        <h2><span class="crumbs" aria-hidden="true"><s>[Music]</s> captions come&nbsp;in <s>captions come in</s> crumbs.</span><span class="sr">Captions come in crumbs.</span> <span class="out">Yapgrab hands you paragraphs.</span></h2>
         <ul class="four">
-          <li class="reveal"><b>Fragments become paragraphs.</b> Sentences are put back together.</li>
-          <li class="reveal" style="--d:.06s"><b>No [Music], no [Applause].</b> Sound tags and repeated lines are removed.</li>
-          <li class="reveal" style="--d:.12s"><b>Breaks where they belong.</b> New paragraphs on chapters and long pauses.</li>
-          <li class="reveal" style="--d:.18s"><b>One click.</b> Press the Yapgrab button on the video page, then copy or save.</li>
+          <li><b>Fragments become paragraphs.</b> Sentences are put back together.</li>
+          <li><b>No [Music], no [Applause].</b> Sound tags and repeated lines are removed.</li>
+          <li><b>Breaks where they belong.</b> New paragraphs on chapters and long pauses.</li>
+          <li><b>One click.</b> Press the Yapgrab button on the video page, then copy or save.</li>
         </ul>
       </div>
     </section>
@@ -168,7 +160,7 @@
         <p class="eyebrow">Where the words go</p>
         <h2 id="uses-h">Paste it. Keep it. Quote it.</h2>
         <div class="uses-grid">
-          <article class="card use reveal">
+          <article class="card use">
             <div class="use-mock" aria-hidden="true">
               <div class="bubble">Summarise the key ideas of this talk in five bullet points.</div>
               <div class="bubble"><span class="clip">Pasted transcript</span>So you've just watched a great talk. You nodded along, you even paused it to write something down. And a week later, you cannot remember a single thing it said.</div>
@@ -176,7 +168,7 @@
             <h3>Ask an AI</h3>
             <p>Paste clean paragraphs into ChatGPT, Claude or any other AI tool, without the caption clutter.</p>
           </article>
-          <article class="card use reveal" style="--d:.08s">
+          <article class="card use">
             <div class="use-mock" aria-hidden="true">
 <pre class="note"><span class="fm">---</span>
 <span class="k">title:</span> Notes That Stick
@@ -190,7 +182,7 @@ So you've just watched a great talk. You nodded along, you even paused it.</pre>
             <h3>Keep notes</h3>
             <p>Markdown with the title, link and date, ready for Obsidian or Notion.</p>
           </article>
-          <article class="card use reveal" style="--d:.16s">
+          <article class="card use">
             <div class="use-mock quote" aria-hidden="true">
               <blockquote>That's not a memory problem. It's a capture problem.</blockquote>
               <p class="src"><time>0:22</time> Notes That Stick, Margin Club</p>
@@ -199,7 +191,7 @@ So you've just watched a great talk. You nodded along, you even paused it.</pre>
             <p>Switch on timestamps to find every line again in the video.</p>
           </article>
         </div>
-        <div class="fmt-strip reveal">
+        <div class="fmt-strip">
           <span class="lbl">Copy it, or save it as</span>
           <ul>
             <li>Plain text <code>.txt</code></li>
@@ -216,10 +208,10 @@ So you've just watched a great talk. You nodded along, you even paused it.</pre>
 
     <section class="section tint" id="details">
       <div class="wrap wide split flip">
-        <figure class="panel-shot reveal">
+        <figure class="panel-shot">
           <img src="assets/panel-chapters.webp" width="432" height="530" loading="lazy" decoding="async" alt="The Yapgrab panel in dark mode with the chapter picker open. Two of six chapters are ticked, each with its start time. Below are the switches: clean text, timestamps, chapter headings and new paragraph on long pauses.">
         </figure>
-        <div class="reveal" style="--d:.08s">
+        <div>
           <p class="eyebrow">The small things</p>
           <h2>Only need part of it? Take just that part.</h2>
           <p class="sub">Pick the caption track and the chapters you want. Yapgrab keeps the original timestamps and marks a partial export as partial. Works on YouTube videos and Shorts.</p>
@@ -234,7 +226,7 @@ So you've just watched a great talk. You nodded along, you even paused it.</pre>
 
     <section class="section ink" id="several">
       <div class="wrap wide split">
-        <div class="reveal">
+        <div>
           <p class="eyebrow">New <span class="badge">Export several videos</span></p>
           <h2>Several videos in. One ZIP of notes out.</h2>
           <p class="sub">Open Yapgrab's side panel and pick videos from your open tabs, the playlist you are on, or a channel's latest videos. Yapgrab reads them one at a time, with pauses, and only while the panel is open.</p>
@@ -246,7 +238,7 @@ So you've just watched a great talk. You nodded along, you even paused it.</pre>
           </ul>
         </div>
 
-        <div class="batch reveal" style="--d:.1s">
+        <div class="batch">
           <div class="card batch-card" aria-hidden="true">
             <div class="mock-bar"><img src="assets/icon.svg" alt="" width="20" height="20"><b>Yapgrab</b><span>Export several videos</span></div>
             <div class="seg"><span>Open video tabs</span><span>This playlist</span><span class="cur">This channel</span></div>
@@ -279,13 +271,13 @@ So you've just watched a great talk. You nodded along, you even paused it.</pre>
 
     <section class="section" id="pro">
       <div class="wrap wide">
-        <div class="reveal">
+        <div>
           <p class="eyebrow">Free and Pro</p>
           <h2>Free now. Pro later. Free stays free.</h2>
           <p class="sub">Everything above is free. Pro is for bigger jobs. It is not for sale yet, so there is nothing to buy today.</p>
         </div>
         <div class="plans">
-          <div class="card plan reveal">
+          <div class="card plan">
             <h3>Free</h3>
             <p class="tag">Everything on this page.</p>
             <ul class="ticks">
@@ -296,7 +288,7 @@ So you've just watched a great talk. You nodded along, you even paused it.</pre>
             </ul>
             <p class="foot">No account, no sign-up.</p>
           </div>
-          <div class="card plan pro reveal" style="--d:.08s">
+          <div class="card plan pro">
             <h3>Pro <span class="badge">Coming soon</span></h3>
             <p class="tag">Bigger exports, and more places to send them.</p>
             <ul class="ticks">
@@ -313,22 +305,22 @@ So you've just watched a great talk. You nodded along, you even paused it.</pre>
 
     <section class="section tint" id="not">
       <div class="wrap wide">
-        <div class="reveal">
+        <div>
           <p class="eyebrow">Nothing else</p>
           <h2>What Yapgrab does not do.</h2>
           <p class="sub">Yapgrab reads captions that already exist and hands you the text. That is the whole job.</p>
         </div>
         <ul class="nots">
-          <li class="reveal"><h3>No tracking, no analytics</h3><p>Transcripts never leave your browser. This page loads no trackers either. <a href="privacy/">Read the privacy policy</a>.</p></li>
-          <li class="reveal" style="--d:.06s"><h3>No account</h3><p>No sign-up, and no paywall for the basics.</p></li>
-          <li class="reveal"><h3>No saving videos or audio</h3><p>Yapgrab only works with caption text.</p></li>
-          <li class="reveal" style="--d:.06s"><h3>No speech-to-text, no summaries</h3><p>If a video has no captions, Yapgrab says so. You get what was said, not a rewrite of it.</p></li>
+          <li><h3>No tracking, no analytics</h3><p>Transcripts never leave your browser. This page loads no trackers either. <a href="privacy/">Read the privacy policy</a>.</p></li>
+          <li><h3>No account</h3><p>No sign-up, and no paywall for the basics.</p></li>
+          <li><h3>No saving videos or audio</h3><p>Yapgrab only works with caption text.</p></li>
+          <li><h3>No speech-to-text, no summaries</h3><p>If a video has no captions, Yapgrab says so. You get what was said, not a rewrite of it.</p></li>
         </ul>
       </div>
     </section>
 
     <section class="section closing">
-      <div class="wrap reveal">
+      <div class="wrap">
         <picture>
           <source srcset="assets/yappy-still.webp" media="(prefers-reduced-motion: reduce)">
           <img class="yappy" src="assets/yappy.webp" alt="Yappy, the Yapgrab mascot: a speech bubble with eyes that yaps out two lines of words" width="180" height="180" loading="lazy" decoding="async">
@@ -344,10 +336,18 @@ So you've just watched a great talk. You nodded along, you even paused it.</pre>
     </dialog>
   </main>
 
-  <footer class="bottom">
+  <footer class="bottom big">
     <div class="wrap wide">
-      <span>&copy; 2026 SUIIUS bv. Yapgrab is not affiliated with or endorsed by YouTube or Google.</span>
-      <span><a href="privacy/">Privacy</a> &middot; <a href="status/">Status</a> &middot; <a href="mailto:kris.vandenberk+blurt@gmail.com">Contact</a></span>
+      <div class="foot-brand">
+        <a class="brand" href="./"><img src="assets/icon.svg" alt="" width="30" height="30">Yapgrab</a>
+        <p>Clean transcripts from the videos you watch. Made in Belgium.</p>
+      </div>
+      <nav class="foot-links" aria-label="Footer">
+        <a href="privacy/">Privacy</a>
+        <a href="status/">Status</a>
+        <a href="mailto:kris.vandenberk+yapgrab@gmail.com">Contact</a>
+      </nav>
+      <p class="legal">&copy; 2026 SUIIUS bv. Yapgrab is not affiliated with or endorsed by YouTube or Google.</p>
     </div>
   </footer>
 </body>
