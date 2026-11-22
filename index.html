@@ -4,41 +4,420 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Blurt: clean transcripts from videos you watch</title>
-  <meta name="description" content="Blurt is a Chrome extension that turns video captions into clean text. One click, runs locally, no account, no tracking.">
+  <meta name="description" content="Blurt is a Chrome extension that turns video captions into clean, readable text. One video or several at once. Runs locally, no account, no tracking. Coming soon to the Chrome Web Store.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Blurt">
+  <meta property="og:title" content="Blurt it out. Clean transcripts, nothing else.">
+  <meta property="og:description" content="A Chrome extension that turns video captions into clean, readable text. Runs locally, no account, no tracking.">
+  <meta property="og:url" content="https://suiiusbv.github.io/blurt/">
+  <meta property="og:image" content="https://suiiusbv.github.io/blurt/assets/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Blurt it out. Clean transcripts, nothing else.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#FFFAF7" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#121216" media="(prefers-color-scheme: dark)">
   <link rel="icon" href="assets/favicon-32.png" type="image/png">
   <link rel="stylesheet" href="assets/site.css">
+  <link rel="stylesheet" href="assets/home.css">
 </head>
-<body>
+<body class="home">
   <header class="top">
-    <div class="wrap">
-      <a class="brand" href="./"><img src="assets/icon.svg" alt="">Blurt</a>
-      <nav class="links"><a href="privacy/">Privacy</a><a href="status/">Status</a></nav>
+    <div class="wrap wide">
+      <a class="brand" href="./"><img src="assets/icon.svg" alt="" width="30" height="30">Blurt</a>
+      <nav class="links" aria-label="Site">
+        <a href="privacy/">Privacy</a>
+        <a href="status/">Status</a>
+        <a class="nav-cta" href="https://tally.so/r/2jA2Lp" rel="noopener">Join the waitlist</a>
+      </nav>
     </div>
   </header>
 
-  <main class="wrap">
-    <section class="hero">
-      <h1>Blurt it out.<br>Clean transcripts, nothing else.</h1>
-      <p class="lead">Blurt is a Chrome extension that turns the captions of the video you are watching into clean, readable text. One click, runs locally in your browser, no account, no tracking.</p>
-      <span class="pill soft">Coming soon to the Chrome Web Store</span>
+  <main>
+    <section class="hero-home">
+      <div class="wrap wide split">
+        <div>
+          <span class="soon"><i></i>Coming soon to the Chrome Web Store</span>
+          <h1><span>Blurt it out.</span> <span class="l2">Clean transcripts, nothing else.</span></h1>
+          <p class="lead">Blurt is a Chrome extension that turns a video's captions into text you can actually read. One click, right in your browser. No account, no tracking.</p>
+          <div class="cta-row">
+            <a class="btn" href="https://tally.so/r/2jA2Lp" rel="noopener">Join the waitlist <span class="arrow" aria-hidden="true">&rarr;</span></a>
+            <a class="text-link" href="#clean">See what it does</a>
+          </div>
+          <p class="fine">Blurt is free. The waitlist is for Blurt Pro, which comes later. We only write to tell you when it is ready.</p>
+        </div>
+
+        <div class="demo">
+          <input class="demo-toggle" type="checkbox" id="clean-toggle" checked aria-describedby="demo-note">
+          <div class="card demo-card">
+            <div class="mock-bar" aria-hidden="true"><img src="assets/icon.svg" alt="" width="20" height="20"><b>Blurt</b><span>Notes That Stick: How to Learn from Long Videos</span></div>
+            <label class="demo-switch" for="clean-toggle">
+              <span>Clean text <span class="state" aria-hidden="true"><span class="off">off: captions as they arrive</span><span class="on">on: ready to read</span></span></span>
+              <span class="knob" aria-hidden="true"></span>
+            </label>
+            <div class="stage">
+              <ul class="raw">
+                <li class="x"><time>0:00</time><span>[Music]</span></li>
+                <li class="k" style="--up:1"><time>0:04</time><span>So you've just watched a great talk.</span></li>
+                <li class="k" style="--up:1"><time>0:07</time><span>You nodded along, you even paused it</span></li>
+                <li class="k" style="--up:1"><time>0:10</time><span>to write something down.</span></li>
+                <li class="k" style="--up:1"><time>0:13</time><span>And a week later, you cannot remember</span></li>
+                <li class="k" style="--up:1"><time>0:16</time><span>a single thing it said.</span></li>
+                <li class="x"><time>0:19</time><span>[Applause]</span></li>
+                <li class="k" style="--up:2"><time>0:22</time><span>That's not a memory problem.</span></li>
+                <li class="k" style="--up:2"><time>0:25</time><span>It's a capture problem.</span></li>
+                <li class="x"><time>0:25</time><span>It's a capture problem.</span></li>
+                <li class="k" style="--up:3"><time>0:29</time><span>Video is great for watching</span></li>
+                <li class="k" style="--up:3"><time>0:33</time><span>and terrible for finding things again.</span></li>
+              </ul>
+              <div class="clean">
+                <p class="ch">WHY MOST VIDEO NOTES NEVER GET USED</p>
+                <p>So you've just watched a great talk. You nodded along, you even paused it to write something down. And a week later, you cannot remember a single thing it said. That's not a memory problem. It's a capture problem. Video is great for watching and terrible for finding things again.</p>
+              </div>
+            </div>
+            <div class="mock-foot" aria-hidden="true">
+              <span class="words">Sample video</span>
+              <span class="mock-btns"><span class="mock-btn">Copy</span><span class="mock-btn alt">Save as file</span></span>
+            </div>
+          </div>
+          <p class="demo-note" id="demo-note">An invented sample video. Flip the switch to see the captions before and after.</p>
+        </div>
+        <script>
+          /* Hero demo intro, scroll reveal and the several-videos demo. No network, no storage. */
+          (function () {
+            var d = document, root = d.documentElement;
+            if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+            var t = d.getElementById('clean-toggle');
+            t.checked = false;
+            var timer, touched = false;
+            function intro() { timer = setTimeout(function () { if (!touched) t.checked = true; }, 1100); }
+            t.addEventListener('click', function () { touched = true; clearTimeout(timer); });
+            if ('IntersectionObserver' in window) {
+              var ho = new IntersectionObserver(function (es) {
+                if (es[0].isIntersecting) { ho.disconnect(); intro(); }
+              }, { threshold: 0.6 });
+              ho.observe(t.parentNode);
+            } else intro();
+            d.addEventListener('DOMContentLoaded', function () {
+              if (!('IntersectionObserver' in window)) return;
+              var batch = d.querySelector('.batch');
+              root.classList.add('js');
+              var io = new IntersectionObserver(function (es) {
+                es.forEach(function (e) {
+                  if (!e.isIntersecting) return;
+                  e.target.classList.add('in');
+                  io.unobserve(e.target);
+                });
+              }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
+              d.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+              batch.classList.add('armed');
+              var bo = new IntersectionObserver(function (es) {
+                if (es[0].isIntersecting) { batch.classList.add('play'); bo.disconnect(); }
+              }, { threshold: 0.45 });
+              bo.observe(batch);
+              batch.querySelector('.replay').addEventListener('click', function () {
+                batch.classList.remove('armed', 'play');
+                void batch.offsetWidth;
+                batch.classList.add('armed', 'play');
+              });
+            });
+          })();
+        </script>
+      </div>
     </section>
 
-    <img class="shot" src="assets/screenshot-clean-text.png" width="1280" height="800" alt="The Blurt panel next to a video, showing the transcript as clean paragraphs with Copy and Save as file buttons.">
+    <section class="for" aria-label="Who Blurt is for">
+      <div class="wrap wide">
+        <p>Made for people who</p>
+        <ul>
+          <li>paste transcripts into ChatGPT, Claude or other AI tools</li>
+          <li>take notes in Obsidian or Notion</li>
+          <li>research, quote or study what was said</li>
+        </ul>
+      </div>
+    </section>
 
-    <ul class="features">
-      <li><strong>Clean text by default</strong><span>Caption fragments become paragraphs. No [Music] tags, no repeated lines.</span></li>
-      <li><strong>Five formats</strong><span>Plain text, Markdown, SRT, WebVTT and JSON. Copy or save as a file.</span></li>
-      <li><strong>Ready for your notes</strong><span>Markdown with frontmatter and chapters as headings, for Obsidian or Notion.</span></li>
-      <li><strong>Pick the chapters</strong><span>Export only the parts you need, with their original timestamps.</span></li>
-      <li><strong>Copy shortcut</strong><span>Alt+Shift+C (Option+Shift+C on Mac) copies without opening anything.</span></li>
-      <li><strong>Private by design</strong><span>Transcripts never leave your browser. No analytics, no account.</span></li>
-    </ul>
+    <section class="section" id="clean">
+      <div class="wrap wide split">
+        <div class="reveal">
+          <p class="eyebrow">Clean text</p>
+          <h2>Captions come in crumbs. Blurt hands you paragraphs.</h2>
+          <p class="sub">Captions are built for the screen: short fragments, split mid-sentence, with sound tags and repeated lines. Clean text mode turns them into something you can read, quote and paste.</p>
+          <ul class="ticks">
+            <li><strong>Fragments become paragraphs.</strong> <span>Sentences are put back together.</span></li>
+            <li><strong>No [Music], no [Applause].</strong> <span>Sound tags and duplicate lines are removed.</span></li>
+            <li><strong>Breaks where they belong.</strong> <span>New paragraphs on chapters and long pauses.</span></li>
+            <li><strong>One click.</strong> <span>Press the Blurt button on the video page, then copy or save.</span></li>
+          </ul>
+        </div>
+        <figure class="shot-frame reveal" style="--d:.1s">
+          <img src="assets/shot-clean-text.webp" width="800" height="740" loading="lazy" decoding="async" alt="The Blurt panel open next to a video. Captions set to English, manual. Format set to plain text. Clean text is switched on, and the preview shows the transcript as paragraphs, with Copy and Save as file buttons below.">
+          <figcaption>The real panel, with an invented sample video.</figcaption>
+        </figure>
+      </div>
+    </section>
 
-    <img class="shot" src="assets/screenshot-markdown.png" width="1280" height="800" alt="Markdown output with title, channel, link and date frontmatter, and chapter headings.">
+    <section class="section tint" id="formats">
+      <div class="wrap wide">
+        <div class="reveal">
+          <p class="eyebrow">Five formats</p>
+          <h2>Pick a format. Copy it, or save it as a file.</h2>
+          <p class="sub">Plain text for AI tools, Markdown for notes, SRT and WebVTT for subtitles, JSON for code.</p>
+        </div>
+        <div class="formats reveal" role="group" aria-label="Sample output per format">
+          <input type="radio" name="fmt" id="f-txt" checked>
+          <input type="radio" name="fmt" id="f-md">
+          <input type="radio" name="fmt" id="f-srt">
+          <input type="radio" name="fmt" id="f-vtt">
+          <input type="radio" name="fmt" id="f-json">
+          <div class="fmt-tabs">
+            <label for="f-txt">Plain text <code>.txt</code></label>
+            <label for="f-md">Markdown <code>.md</code></label>
+            <label for="f-srt">SRT <code>.srt</code></label>
+            <label for="f-vtt">WebVTT <code>.vtt</code></label>
+            <label for="f-json">JSON <code>.json</code></label>
+          </div>
+          <div class="fmt-panels">
+            <div class="fmt-panel p-txt">
+<pre>Notes That Stick: How to Learn from Long Videos
+by Margin Club
+https://www.youtube.com/watch?v=nT5k2Qe9dWx
+
+WHY MOST VIDEO NOTES NEVER GET USED
+
+So you've just watched a great talk. You nodded
+along, you even paused it to write something down.
+And a week later, you cannot remember a single
+thing it said.
+...</pre>
+              <div class="why"><h3>Plain text</h3><p>Paragraphs and nothing else. Paste it straight into an AI tool, an email or a document. Timestamps are there if you switch them on.</p></div>
+            </div>
+            <div class="fmt-panel p-md">
+<pre>---
+title: "Notes That Stick: How to Learn from Long Videos"
+channel: "Margin Club"
+url: "https://www.youtube.com/watch?v=nT5k2Qe9dWx"
+video_id: "nT5k2Qe9dWx"
+date: "2026-10-02"
+language: "en"
+captions: "manual"
+extracted_at: "2026-11-19T10:00:00.000Z"
+---
+
+# Notes That Stick: How to Learn from Long Videos
+
+## Why most video notes never get used
+
+So you've just watched a great talk. You nodded
+...</pre>
+              <div class="why"><h3>Markdown</h3><p>Obsidian-ready. Frontmatter with title, channel, link, date and language, and the video's chapters as headings.</p></div>
+            </div>
+            <div class="fmt-panel p-srt">
+<pre>1
+00:00:04,000 --> 00:00:07,000
+So you've just watched a great talk.
+
+2
+00:00:07,000 --> 00:00:10,000
+You nodded along, you even paused it
+
+3
+00:00:10,000 --> 00:00:13,000
+to write something down.
+...</pre>
+              <div class="why"><h3>SRT subtitles</h3><p>Numbered cues with start and end times, for video editors and subtitle tools.</p></div>
+            </div>
+            <div class="fmt-panel p-vtt">
+<pre>WEBVTT
+
+NOTE Notes That Stick: How to Learn from Long Videos
+
+00:00:04.000 --> 00:00:07.000
+So you've just watched a great talk.
+
+00:00:07.000 --> 00:00:10.000
+You nodded along, you even paused it
+
+00:00:10.000 --> 00:00:13.000
+...</pre>
+              <div class="why"><h3>WebVTT subtitles</h3><p>The subtitle format of the web, ready for a video player or a caption editor.</p></div>
+            </div>
+            <div class="fmt-panel p-json">
+<pre>{
+  "source": "blurt",
+  "schema": 1,
+  "meta": {
+    "id": "nT5k2Qe9dWx",
+    "title": "Notes That Stick: How to Learn from Long Videos",
+    "channel": "Margin Club",
+    "url": "https://www.youtube.com/watch?v=nT5k2Qe9dWx",
+    "publishDate": "2026-10-02",
+    "lengthSeconds": 742
+  },
+  ...</pre>
+              <div class="why"><h3>JSON</h3><p>Everything with timestamps and chapters, structured for your own scripts.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="details">
+      <div class="wrap wide">
+        <div class="split">
+          <div class="reveal">
+            <p class="eyebrow">The small things</p>
+            <h2>Only need part of it? Take just that part.</h2>
+            <p class="sub">Choose the caption track and the chapters you want, then copy. Blurt keeps the original timestamps, and marks a partial export as partial.</p>
+          </div>
+          <figure class="shot-frame reveal" style="--d:.1s">
+            <img src="assets/shot-chapter-picker.webp" width="800" height="740" loading="lazy" decoding="async" alt="The Blurt panel in dark mode with the chapter picker open. Two of six chapters are ticked, each with its start time.">
+            <figcaption>The chapter picker, in dark mode.</figcaption>
+          </figure>
+        </div>
+        <ul class="grid">
+          <li class="reveal">
+            <div class="vis" aria-hidden="true"><span class="chip on">English, manual</span><span class="chip">auto-generated</span></div>
+            <h3>Pick the caption track</h3>
+            <p>Every caption language the video has, clearly labelled manual or auto-generated.</p>
+          </li>
+          <li class="reveal" style="--d:.06s">
+            <div class="vis" aria-hidden="true"><span class="chip on">2 of 6</span><span class="chip">1:34</span><span class="chip">4:11</span></div>
+            <h3>Pick the chapters</h3>
+            <p>Export only the chapters you choose. Timestamps stay as they are in the video.</p>
+          </li>
+          <li class="reveal" style="--d:.12s">
+            <div class="vis" aria-hidden="true"><kbd>Alt</kbd><kbd>Shift</kbd><kbd>C</kbd></div>
+            <h3>Copy without opening anything</h3>
+            <p>Press Alt+Shift+C (Option+Shift+C on Mac). The transcript is on your clipboard, in your saved format.</p>
+          </li>
+          <li class="reveal">
+            <div class="vis" aria-hidden="true"><span class="chip warn">No captions on this one</span></div>
+            <h3>Honest messages</h3>
+            <p>"No captions on this one" when there are none. A clear "Extraction failed" when something breaks. Never a silent blank page.</p>
+          </li>
+          <li class="reveal" style="--d:.06s">
+            <div class="vis" aria-hidden="true"><span class="chip">Videos</span><span class="chip">Shorts</span></div>
+            <h3>Videos and Shorts</h3>
+            <p>Works on YouTube video pages and Shorts that have captions, manual or auto-generated.</p>
+          </li>
+          <li class="reveal" style="--d:.12s">
+            <div class="vis" aria-hidden="true"><span class="chip on">Timestamps</span><span class="chip on">Chapter headings</span></div>
+            <h3>Your settings stick</h3>
+            <p>Timestamps, chapter headings and new paragraphs on long pauses are switches. Blurt remembers how you set them.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section tint" id="several">
+      <div class="wrap wide split">
+        <div class="reveal">
+          <p class="eyebrow">New <span class="badge">Export several videos</span></p>
+          <h2>Several videos in. One ZIP of notes out.</h2>
+          <p class="sub">Open Blurt's side panel and pick videos from your open tabs, the playlist you are on, or a channel's latest videos. Blurt reads them one at a time, with pauses, and only while the panel is open.</p>
+          <ul class="ticks">
+            <li><strong>Three places to pick from.</strong> <span>Open video tabs, this playlist, or this channel, with switches for Shorts and past live streams.</span></li>
+            <li><strong>You stay in charge.</strong> <span>Pause, resume, retry the ones that failed, and skip videos you already exported.</span></li>
+            <li><strong>One tidy ZIP.</strong> <span>A Markdown file per video, an index.md with each video's status, a manifest.json, and an optional combined.md with every transcript in one file.</span></li>
+            <li><strong>Free: up to 5 videos per export.</strong></li>
+          </ul>
+        </div>
+
+        <div class="batch reveal" style="--d:.1s">
+          <div class="card batch-card" aria-hidden="true">
+            <div class="mock-bar"><img src="assets/icon.svg" alt="" width="20" height="20"><b>Blurt</b><span>Export several videos</span></div>
+            <div class="seg"><span>Open video tabs</span><span>This playlist</span><span class="cur">This channel</span></div>
+            <div class="batch-head"><b>Field Notes Studio</b><span class="count"><span class="run">Reading...</span><span class="fin">5 saved.</span></span></div>
+            <div class="bar"><i></i></div>
+            <ul class="rows">
+              <li style="--i:0"><span class="t">How I take notes from long lectures</span><span class="st"><span class="w">Waiting</span><span class="r">Reading...</span><span class="s">Saved</span></span></li>
+              <li style="--i:1"><span class="t">A ten-minute weekly review that sticks</span><span class="st"><span class="w">Waiting</span><span class="r">Reading...</span><span class="s">Saved</span></span></li>
+              <li style="--i:2"><span class="t">Reading notes that link to each other</span><span class="st"><span class="w">Waiting</span><span class="r">Reading...</span><span class="s">Saved</span></span></li>
+              <li style="--i:3"><span class="t">Capture first, tidy later</span><span class="st"><span class="w">Waiting</span><span class="r">Reading...</span><span class="s">Saved</span></span></li>
+              <li style="--i:4"><span class="t">Turning interviews into searchable text</span><span class="st"><span class="w">Waiting</span><span class="r">Reading...</span><span class="s">Saved</span></span></li>
+            </ul>
+            <div class="zip">
+              <div class="name">Blurt - Field Notes Studio - 2026-11-22.zip</div>
+              <ul>
+                <li style="--i:0">001-how-i-take-notes-from-long-lectures.md</li>
+                <li style="--i:1">002-a-ten-minute-weekly-review-that-sticks.md</li>
+                <li style="--i:2">003-reading-notes-that-link-to-each-other.md</li>
+                <li style="--i:3">004-capture-first-tidy-later.md</li>
+                <li style="--i:4">005-turning-interviews-into-searchable-text.md</li>
+                <li class="opt" style="--i:4.3">index.md</li>
+                <li class="opt" style="--i:4.5">manifest.json</li>
+              </ul>
+            </div>
+          </div>
+          <p class="sr">Illustration: five videos from a channel go from Waiting to Reading to Saved, one at a time, and a ZIP fills with one Markdown file per video, plus index.md and manifest.json.</p>
+          <button class="replay" type="button">Replay the demo</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="pro">
+      <div class="wrap wide">
+        <div class="reveal">
+          <p class="eyebrow">Free and Pro</p>
+          <h2>Free now. Pro later. Free stays free.</h2>
+          <p class="sub">Everything above is free. Pro is for bigger jobs. It is not for sale yet, so there is nothing to buy today.</p>
+        </div>
+        <div class="plans">
+          <div class="card plan reveal">
+            <h3>Free</h3>
+            <p class="tag">Everything on this page.</p>
+            <ul class="ticks">
+              <li>Clean text in five formats</li>
+              <li>Caption track and chapter pickers</li>
+              <li>Copy shortcut</li>
+              <li>Several videos at once, up to 5 per export</li>
+            </ul>
+            <p class="foot">No account, no sign-up.</p>
+          </div>
+          <div class="card plan pro reveal" style="--d:.08s">
+            <h3>Pro <span class="badge">Coming soon</span></h3>
+            <p class="tag">Bigger exports, and more places to send them.</p>
+            <ul class="ticks">
+              <li>Up to 300 videos per export</li>
+              <li>A channel's videos between two dates, or all of them</li>
+              <li>Planned: Notion export, RAG packs and API access</li>
+            </ul>
+            <a class="btn" href="https://tally.so/r/2jA2Lp" rel="noopener">Join the waitlist <span class="arrow" aria-hidden="true">&rarr;</span></a>
+            <p class="foot">The form opens on Tally. The <a href="privacy/">privacy policy</a> says what it collects.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section tint" id="not">
+      <div class="wrap wide">
+        <div class="reveal">
+          <p class="eyebrow">Nothing else</p>
+          <h2>What Blurt does not do.</h2>
+          <p class="sub">Blurt reads captions that already exist and hands you the text. That is the whole job.</p>
+        </div>
+        <ul class="nots">
+          <li class="reveal"><h3>No tracking, no analytics</h3><p>Transcripts never leave your browser. This page loads no trackers either. <a href="privacy/">Read the privacy policy</a>.</p></li>
+          <li class="reveal" style="--d:.06s"><h3>No account</h3><p>No sign-up, and no paywall for the basics.</p></li>
+          <li class="reveal"><h3>No saving videos or audio</h3><p>Blurt only works with caption text.</p></li>
+          <li class="reveal" style="--d:.06s"><h3>No speech-to-text, no summaries</h3><p>If a video has no captions, Blurt says so. You get what was said, not a rewrite of it.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section closing">
+      <div class="wrap reveal">
+        <img src="assets/icon.svg" alt="" width="56" height="56">
+        <h2>Coming soon to the Chrome Web Store.</h2>
+        <p class="sub">Blurt is not in the store yet. Want the bigger version when it lands? Join the Pro waitlist.</p>
+        <a class="btn" href="https://tally.so/r/2jA2Lp" rel="noopener">Join the waitlist <span class="arrow" aria-hidden="true">&rarr;</span></a>
+      </div>
+    </section>
   </main>
 
   <footer class="bottom">
-    <div class="wrap">
+    <div class="wrap wide">
       <span>&copy; 2026 SUIIUS bv. Blurt is not affiliated with or endorsed by YouTube or Google.</span>
       <span><a href="privacy/">Privacy</a> &middot; <a href="status/">Status</a> &middot; <a href="mailto:kris.vandenberk+blurt@gmail.com">Contact</a></span>
     </div>
