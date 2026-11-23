@@ -1,6 +1,6 @@
 /* Easter eggs: click Yappy and it eats the words on screen, chews, spits them back,
-   and hands you a clean transcript of this page as Markdown. Hover Yappy for 3 s
-   and its eyes follow your cursor for the rest of the visit.
+   and hands you a clean transcript of this page as Markdown. With a mouse,
+   Yappy's eyes follow your cursor around the page.
    No network, no storage, no cookies. Everything happens in this tab. */
 (function () {
   var d = document, body = d.body;
@@ -216,10 +216,10 @@
 
   d.querySelectorAll('.yappy-egg').forEach(wire);
 
-  /* ---------- second egg: hover Yappy for 3 s and its eyes follow you for the rest of the visit ---------- */
+  /* ---------- Yappy's eyes follow the cursor ---------- */
 
   var yappies = [].slice.call(d.querySelectorAll('.yappy-egg'));
-  var watching = false, hoverTimer, px = -1, py = -1, frame = 0;
+  var watching = false, px = -1, py = -1, frame = 0;
 
   function addEyes(btn) {
     var box = d.createElement('span');
@@ -264,14 +264,6 @@
     if (px >= 0) look();
   }
 
-  if (window.matchMedia && matchMedia('(hover: hover) and (pointer: fine)').matches) {
-    yappies.forEach(function (btn) {
-      btn.addEventListener('pointerenter', function (e) {
-        px = e.clientX; py = e.clientY;
-        if (!watching) hoverTimer = setTimeout(startWatching, 3000);
-      });
-      btn.addEventListener('pointermove', function (e) { px = e.clientX; py = e.clientY; });
-      btn.addEventListener('pointerleave', function () { clearTimeout(hoverTimer); });
-    });
-  }
+  // With a mouse, Yappy watches the cursor from the start. Touch screens have no cursor to follow.
+  if (window.matchMedia && matchMedia('(hover: hover) and (pointer: fine)').matches) startWatching();
 })();
