@@ -49,10 +49,8 @@ body.home { overflow-x: clip; }
 
 /* Hero */
 .hero-home { position: relative; padding: 44px 0 84px; }
-.hero-home::before { content: ""; position: absolute; inset: -120px 0 0; z-index: -1; pointer-events: none; background: radial-gradient(620px 420px at 82% 30%, var(--accent-soft), transparent 70%); }
 .hero-home .split { grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); }
-.soon { display: inline-flex; align-items: center; gap: 10px; padding: 7px 14px 7px 12px; border-radius: 999px; border: 1px solid var(--line); background: var(--card); color: var(--muted); font-size: 14px; font-weight: 650; }
-.soon i { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+.soon { color: var(--muted); font-size: 15px; font-weight: 600; }
 .hero-home h1 { font-size: clamp(44px, 5.4vw, 68px); line-height: .95; letter-spacing: -.035em; font-weight: 780; margin-top: 22px; }
 .hero-home h1 span { display: block; }
 .hero-home h1 .l2 { text-wrap: balance; font-size: .58em; line-height: 1.06; letter-spacing: -.025em; font-weight: 700; color: var(--accent-ink); margin-top: .22em; }
@@ -257,7 +255,6 @@ kbd { display: inline-block; min-width: 30px; padding: 4px 9px; border-radius: 8
 
 /* Closing */
 .closing { text-align: center; padding: 96px 0 104px; position: relative; }
-.closing::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: radial-gradient(560px 300px at 50% 100%, var(--accent-soft), transparent 70%); }
 .closing .yappy { display: block; width: 180px; height: 180px; margin: 0 auto; }
 .closing h2 { margin-top: 6px; }
 .closing .sub { margin-inline: auto; }
