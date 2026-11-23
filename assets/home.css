@@ -150,7 +150,7 @@ dialog.film .close:focus-visible { outline: 3px solid var(--accent); outline-off
   .mock-foot { justify-content: flex-end; }
 }
 
-/* Where the words go: three small cards showing the text where people use it. */
+/* Uses: three small cards showing the text where people use it. */
 .uses h2 { margin-bottom: 36px; }
 .fmt-strip { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; margin-top: 28px; padding: 16px 20px; border-radius: 16px; border: 1px dashed var(--line); }
 .fmt-strip .lbl { font-weight: 650; color: var(--muted); font-size: 15px; }
@@ -282,7 +282,7 @@ kbd { display: inline-block; min-width: 30px; padding: 4px 9px; border-radius: 8
 @media (max-width: 900px) { .statement { padding: 72px 0 64px; } .four { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
 @media (max-width: 520px) { .four { grid-template-columns: minmax(0, 1fr); gap: 20px; } }
 
-/* The small things: the real panel at 2x next to three details. */
+/* Details: the real panel at 2x next to three details. */
 .split.flip { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); }
 .panel-shot { margin: 0; justify-self: center; width: min(100%, 432px); }
 .panel-shot img { display: block; width: 100%; height: auto; border-radius: 16px; box-shadow: 0 30px 60px -24px rgba(20, 10, 5, .45), 0 0 0 1px rgba(0, 0, 0, .08);
