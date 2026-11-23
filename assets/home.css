@@ -345,8 +345,8 @@ footer.big .legal { grid-column: 1 / -1; padding-top: 18px; border-top: 1px soli
 .real-frame { border-radius: 16px; overflow: hidden; border: 1px solid var(--line); background: var(--card); box-shadow: 0 40px 80px -36px rgba(20, 10, 5, .45), var(--shadow); }
 .real-stage { position: relative; }
 .real-stage .base { display: block; width: 100%; height: auto; }
-.real-stage .panel { position: absolute; left: 71.09%; top: 9.03%; width: 28.4%; height: auto; border-radius: 8px; }
-.real-stage .tap { position: absolute; left: 40.9%; top: 95.8%; width: 44px; height: 44px; margin: -22px 0 0 -22px; border-radius: 50%; border: 3px solid var(--accent); opacity: 0; }
+.real-stage .panel { position: absolute; left: 71.18%; top: 10.97%; width: 27.48%; height: auto; border-radius: 8px; }
+.real-stage .tap { position: absolute; left: 41.35%; top: 96.98%; width: 44px; height: 44px; margin: -22px 0 0 -22px; border-radius: 50%; border: 3px solid var(--accent); opacity: 0; }
 .real figcaption { margin-top: 14px; font-size: 13.5px; color: var(--muted); text-align: center; text-wrap: balance; }
 .real-stage.play .panel { animation: real-panel 9s cubic-bezier(.3, .8, .3, 1) infinite; }
 .real-stage.play .tap { animation: real-tap 9s ease-out infinite; }
@@ -402,3 +402,7 @@ body.egg-hush :is(img, svg, video) { -webkit-text-fill-color: initial; }
 .yappy-eyes i { display: block; width: 50%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle at 34% 30%, #6b6b70 0 9%, #2b2b2e 15%); transition: transform .12s ease-out; }
 @keyframes eye-open { 0% { transform: scaleY(.1); } 60% { transform: scaleY(1.12); } 100% { transform: none; } }
 @media (prefers-reduced-motion: reduce) { .yappy-eyes .eye { animation: none; } .yappy-eyes i { transition: none; } }
+
+/* Read along: the real panel on its Read along tab, at 2x. */
+.read-shot { width: min(100%, 400px); }
+@media (max-width: 900px) { #read .split { grid-template-columns: minmax(0, 1fr); } }
