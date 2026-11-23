@@ -392,7 +392,7 @@ body.egg-hush :is(img, svg, video) { -webkit-text-fill-color: initial; }
 .egg-toast :focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
 @media (prefers-reduced-motion: reduce) { .egg-toast, .egg-toast.show { transition: none; } }
 
-/* Second egg: live eyes laid exactly over the drawn ones (positions measured on the 344 and 360 px art). */
+/* Live eyes laid exactly over the drawn ones (positions measured on the 344 and 360 px art). */
 .closing-egg { position: relative; }
 .yappy-eyes { position: absolute; inset: 0; pointer-events: none; }
 .yappy-eyes .eye { position: absolute; top: 29%; width: 11.7%; height: 13.7%; border-radius: 50%; display: flex; align-items: center; justify-content: center;
